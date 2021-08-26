@@ -18,7 +18,7 @@ public class CrabWorld extends World
      */
     private void prepare()
     {
-        for(int i=0; i<20;i++)
+        for(int i=0; i<5;i++)
         {
             Crab crab = new Crab();
             addObject(crab, Greenfoot.getRandomNumber(getWidth()),Greenfoot.getRandomNumber(getWidth()));
