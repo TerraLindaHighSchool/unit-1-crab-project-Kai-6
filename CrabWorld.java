@@ -1,5 +1,4 @@
-import greenfoot.*;  // (Actor, World, Greenfoot, GreenfootImage)
-
+import greenfoot.*;  // (Actor, World, Greenfoot, GreenfootImage) 
 public class CrabWorld extends World
 {
     /**
@@ -19,7 +18,23 @@ public class CrabWorld extends World
     private void prepare()
     {
         Crab crab = new Crab();
-        addObject(crab, Greenfoot.getRandomNumber(getWidth()),Greenfoot.getRandomNumber(getWidth()));
+        addObject(crab, getWidth()/2, getWidth()/2);
+        for(int i=0; i<10; i++) 
+        {
+            int tempx = Greenfoot.getRandomNumber(getWidth()-30);
+            int tempy = Greenfoot.getRandomNumber(getWidth()-34);
+            while(tempx < 30)
+            {
+                tempx = Greenfoot.getRandomNumber(getWidth()-30);
+            }
+
+            while(tempy < 30)
+            {
+                tempy = Greenfoot.getRandomNumber(getWidth()-34);
+            }
+            Worm worm = new Worm();
+            addObject(worm, tempx, tempy);
+        }
     }
 
 }

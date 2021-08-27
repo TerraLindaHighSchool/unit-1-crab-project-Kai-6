@@ -31,18 +31,25 @@ public class Crab extends Actor
     {
         if(Greenfoot.isKeyDown("right"))
         {
-            turn(4);
+            turn(5);
         }
 
         if(Greenfoot.isKeyDown("left"))
         {
-            turn(-4);
+            turn(-5);
+        }
+
+        if(Greenfoot.isKeyDown("up")) 
+        {
+            Greenfoot.delay(60);
         }
     }
     // Checks for collisions with other objects
     private void onCollision()
     {
-
+        if(isTouching(Worm.class)) {
+            removeTouching(Worm.class);
+        }
     }
 }
 
