@@ -11,6 +11,7 @@ public class Lobster extends Actor
     //makes the lobster do stuff
     public void act()
     {
+        //moves lobster
         move(3);
         turnAtEdge();
     }

@@ -42,10 +42,19 @@ public class Crab extends Actor
     // Checks for collisions with other objects
     private void onCollision()
     {
-        if(isTouching(Worm.class)) {
+        if(isTouching(Worm.class))
+        {
             removeTouching(Worm.class);
-            Greenfoot.playSound("slurp.wav");
+            Greenfoot.playSound("slurp.wav");         
+            // Winning the game
+            if(getWorld().getObjects(Worm.class).size() == 0)
+            {
+                Greenfoot.setWorld(new WinSplash());
+                Greenfoot.playSound("fanfare.wav");
+                Greenfoot.stop();
+            }
         }
+        //losing the game
         if(isTouching(Lobster.class)) {
             Greenfoot.playSound("au.wav");
             Greenfoot.stop();
