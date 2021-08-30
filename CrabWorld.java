@@ -30,19 +30,12 @@ public class CrabWorld extends World
         
         for(int i=0; i<10; i++) 
         {
-            int tempx = Greenfoot.getRandomNumber(getWidth()-30);
-            int tempy = Greenfoot.getRandomNumber(getWidth()-34);
-            while(tempx < 30)
-            {
-                tempx = Greenfoot.getRandomNumber(getWidth()-30);
-            }
-
-            while(tempy < 34)
-            {
-                tempy = Greenfoot.getRandomNumber(getWidth()-34);
-            }
             Worm worm = new Worm();
-            addObject(worm, tempx, tempy);
+            int imageWidth = worm.getImage().getWidth();
+            int imageHeight = worm.getImage().getHeight();
+            int xPosition = imageWidth + Greenfoot.getRandomNumber(getWidth() - 2 * imageWidth);
+            int yPosition = imageHeight + Greenfoot.getRandomNumber(getWidth() - 2 * imageHeight);
+            addObject(worm, xPosition, yPosition);
         }
     }
 
