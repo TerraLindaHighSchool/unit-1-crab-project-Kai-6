@@ -7,14 +7,9 @@ public class CrabWorld extends World
      */
     public CrabWorld() 
     {
-        super(560, 560, 1);
+        super(100, 100, 6);
         prepare();
     }
-    
-    /**
-     * World update method
-     * makes sure there are always at least 10 worms on screen.
-     */
 
     /**
      * Prepare the world for the start of the program.
@@ -22,20 +17,10 @@ public class CrabWorld extends World
      */
     private void prepare()
     {
-        Crab crab = new Crab();
-        addObject(crab, 100, getWidth()/2);
-
-        Lobster lobster = new Lobster();
-        addObject(lobster, 400, getWidth()/2);
-        
-        for(int i=0; i<10; i++) 
+        Player player = new Player();
+        addObject(player, 2, getHeight()/2);
+        for(int i=0; i<4; i++) 
         {
-            Worm worm = new Worm();
-            int imageWidth = worm.getImage().getWidth();
-            int imageHeight = worm.getImage().getHeight();
-            int xPosition = imageWidth + Greenfoot.getRandomNumber(getWidth() - 2 * imageWidth);
-            int yPosition = imageHeight + Greenfoot.getRandomNumber(getWidth() - 2 * imageHeight);
-            addObject(worm, xPosition, yPosition);
         }
     }
 
