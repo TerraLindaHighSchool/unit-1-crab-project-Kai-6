@@ -7,7 +7,7 @@ public class CrabWorld extends World
      */
     public CrabWorld() 
     {
-        super(100, 100, 6);
+        super(50, 50, 12);
         prepare();
     }
 
@@ -19,8 +19,14 @@ public class CrabWorld extends World
     {
         Player player = new Player();
         addObject(player, 2, getHeight()/2);
-        for(int i=0; i<4; i++) 
+        for(int i = 0; i < Greenfoot.getRandomNumber(2); i++)
         {
+            
+        }
+        for(int i = 0; i<5; i++) 
+        {
+            Food food = new Food();
+            addObject(food, 4, 4);
         }
     }
 
