@@ -14,6 +14,11 @@ public class Food extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+        if(isTouching(Rock.class) || isTouching(Food.class)) {
+            move(1);
+            if(isAtEdge()) {
+                setRotation(Greenfoot.getRandomNumber(360));
+            }
+        }
     }
 }

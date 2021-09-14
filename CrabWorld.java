@@ -7,7 +7,7 @@ public class CrabWorld extends World
      */
     public CrabWorld() 
     {
-        super(50, 50, 12);
+        super(600, 600, 1);
         prepare();
     }
 
@@ -17,17 +17,29 @@ public class CrabWorld extends World
      */
     private void prepare()
     {
+        int rockNum = Greenfoot.getRandomNumber(4)+1;
         Player player = new Player();
-        addObject(player, 2, getHeight()/2);
-        for(int i = 0; i < Greenfoot.getRandomNumber(2); i++)
+        addObject(player, 60, getHeight()/2);
+        for(int i = 0; i < rockNum; i++)
+        {
+            Rock rock = new Rock();
+            addObject(rock,
+                getRandom(rock.getImage().getWidth(), getWidth() - rock.getImage().getWidth()), 
+                getRandom(rock.getImage().getHeight(), getHeight() - rock.getImage().getHeight()));
+            }
+        for(int i = 0; i < 5; i++) 
         {
             
         }
-        for(int i = 0; i<5; i++) 
-        {
-            Food food = new Food();
-            addObject(food, 4, 4);
+        for(int i = 0; i < 20; i++) {
+                        Food food = new Food();
+                        food.setRotation(Greenfoot.getRandomNumber(360));
+            addObject(food,
+                getRandom(food.getImage().getWidth(), getWidth() - food.getImage().getWidth()), 
+                getRandom(food.getImage().getHeight(), getHeight() - food.getImage().getHeight()));
         }
+}
+private int getRandom(int min, int max) { 
+        return(Greenfoot.getRandomNumber(max - min) + min);
     }
-
 }
