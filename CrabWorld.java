@@ -7,8 +7,31 @@ public class CrabWorld extends World
      */
     public CrabWorld() 
     {
-        super(600, 600, 1);
+        super(700, 700, 1);
         prepare();
+    }
+
+    public void act() {
+        while(getObjects(Food.class).size() < 10)
+        {
+            if(Greenfoot.getRandomNumber(100) <= 5) {
+                PowerUp pwrup = new PowerUp();
+                addObject
+                (
+                    pwrup,
+                    getRandom(pwrup.getImage().getWidth(), getWidth() - pwrup.getImage().getWidth()), 
+                    getRandom(pwrup.getImage().getHeight(), getHeight() - pwrup.getImage().getHeight())
+                );
+            }
+            Food food = new Food();
+            food.setRotation(Greenfoot.getRandomNumber(360));
+            addObject
+            (
+                food,
+                getRandom(food.getImage().getWidth(), getWidth() - food.getImage().getWidth()), 
+                getRandom(food.getImage().getHeight(), getHeight() - food.getImage().getHeight())
+            );
+        }
     }
 
     /**
@@ -26,20 +49,30 @@ public class CrabWorld extends World
             addObject(rock,
                 getRandom(rock.getImage().getWidth(), getWidth() - rock.getImage().getWidth()), 
                 getRandom(rock.getImage().getHeight(), getHeight() - rock.getImage().getHeight()));
-            }
+        }
+        Lobster lobster = new Lobster();
+        lobster.setRotation(Greenfoot.getRandomNumber(360));
+        addObject
+        (
+            lobster, 
+            getRandom(lobster.getImage().getWidth(), getWidth() - lobster.getImage().getWidth()), 
+            getRandom(lobster.getImage().getHeight(), getHeight() - lobster.getImage().getHeight())
+        );
         for(int i = 0; i < 5; i++) 
         {
-            
-        }
-        for(int i = 0; i < 20; i++) {
-                        Food food = new Food();
-                        food.setRotation(Greenfoot.getRandomNumber(360));
-            addObject(food,
+            Food food = new Food();
+            food.setRotation(Greenfoot.getRandomNumber(360));
+            addObject
+            (
+                food,
                 getRandom(food.getImage().getWidth(), getWidth() - food.getImage().getWidth()), 
-                getRandom(food.getImage().getHeight(), getHeight() - food.getImage().getHeight()));
+                getRandom(food.getImage().getHeight(), getHeight() - food.getImage().getHeight())
+            );
         }
-}
-private int getRandom(int min, int max) { 
+    }
+
+    public int getRandom(int min, int max) 
+    { 
         return(Greenfoot.getRandomNumber(max - min) + min);
     }
 }
